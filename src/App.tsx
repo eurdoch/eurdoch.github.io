@@ -1,11 +1,13 @@
+import Markdown from 'markdown-to-jsx';
 import './App.css'
 
 function App() {
   return (
     <>
-      <div>
-      	FOOM PREP
-      </div>
+      <Markdown>
+        # Foom Prep
+        Prepare for the end!
+      </Markdown>
     </>
   )
 }
