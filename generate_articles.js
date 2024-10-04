@@ -28,7 +28,10 @@ fs.readdir(postsDir, (err, files) => {
                 export default ${path.basename(file, '.md')};
                 `;
 
- javascript
-       }            const outputFilePath = path.join(outputDir, path.basename(file, path.extname(file)) + '.tsx');
+           const outputFilePath = path.join(outputDir, path.basename(file, path.extname(file)) + '.tsx');
+ 
+ const fs = require('fs');
+
+      }fs.writeFileSync(outputFilePath, jsxContent);
 
     }
