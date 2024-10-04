@@ -6,8 +6,8 @@ const Blog = () => {
     <div>
       <div className="text-xl">
         <div className="font-bold">ML</div>
-                <div className="indent-8"><Link to="/posts/AnArticle.tsx">AnArticle.tsx</Link></div>
-        <div className="indent-8"><Link to="/posts/AnotherArticle.tsx">AnotherArticle.tsx</Link></div>
+        <div className="indent-8"><Link to="/posts/an_article">An Article</Link></div>
+<div className="indent-8"><Link to="/posts/another_article">Another Article</Link></div>
       </div> 
     </div>
   )

@@ -10,6 +10,10 @@ function camelToSnakeCase(str) {
   return str.split(/(?=[A-Z])/).join('_').toLowerCase();
 }
 
+function separateCamelToe(str) {
+  return str.split(/(?=[A-Z])/).join(' ');
+}
+
 fs.readdir(postsDir, (err, files) => {
     if (err) throw err;
 
@@ -21,11 +25,13 @@ fs.readdir(postsDir, (err, files) => {
 import Markdown from 'markdown-to-jsx'; 
 
 const ${path.basename(file, '.md')} = () => {
-    <div>
-        <Markdown>
-            {${JSON.stringify(fileContent)}}
-        </Markdown>
-    </div>             
+    return (
+        <div>
+            <Markdown>
+                {${JSON.stringify(fileContent)}}
+            </Markdown>
+        </div>             
+    )
 }
 
 export default ${path.basename(file, '.md')}`;
@@ -36,7 +42,6 @@ export default ${path.basename(file, '.md')}`;
     });
 
     fs.readdir(outputDir, (err, files) => {
-        console.log(files);
         if (err) {
           console.error('Error reading directory:', err);
           return;
@@ -44,8 +49,9 @@ export default ${path.basename(file, '.md')}`;
 
         // Generate new link elements
         const newLinks = files.map(file => {
-          const name = path.basename(file, '.jsx');
-          return `<div className="indent-8"><Link to="/posts/${name}">${name.replace(/-/g, ' ')}</Link></div>`;
+          const name = path.basename(file, '.tsx');
+          const url_suffix = camelToSnakeCase(name);
+          return `<div className="indent-8"><Link to="/posts/${url_suffix}">${separateCamelToe(name)}</Link></div>`;
         });
 
         const blogReactComponent = `
@@ -79,9 +85,10 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import About from './About.tsx';
 import Blog from './Blog.tsx';
+import Posts from './Posts.tsx';
 ${files.map(file => {
   const basename = path.basename(file, path.extname(file));
-  return `import ${basename} from './${basename}.tsx`
+  return `import ${basename} from './posts/${basename}.tsx'`
 }).join('\n')}
 import {
   createBrowserRouter,
@@ -101,14 +108,18 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "posts",
+        element: <Posts />,
         children: [
           ${files.map(file => {
             const basename = path.basename(file, path.extname(file));
             const url_suffix = camelToSnakeCase(basename);
-            return `{ path: "${url_suffix}, element: <${basename} />}`
-          }).join('\n')}
-        ]
-      }
+            return `{ path: "${url_suffix}", element: <${basename} /> }`
+          }).join(',\n')}
+        ],
+      },
     ],
   },
 ]);
