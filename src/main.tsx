@@ -7,9 +7,6 @@ import {
 } from 'react-router-dom';
 import './output.css'
 
-
-import { createBrowserRouter } from 'react-router-dom';
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,10 +18,12 @@ const router = createBrowserRouter([
   },
 ];
 );
-
-export default router
+javascript
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <RouterProvider>
+      <App />
+    </RouterProvider>
   </StrictMode>,
 )
+
