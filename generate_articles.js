@@ -1,7 +1,13 @@
+import fs from 'fs';
+import path from 'path';
 
-const fs = require('fs');
-const path = require('path');
-const markdownToJsx = require('markdown-to-jsx');
+javascript
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const postsDir = path.join(__dirname, 'posts');
 const outputDir = path.join(__dirname, 'src');
@@ -26,12 +32,11 @@ fs.readdir(postsDir, (err, files) => {
                 }
 
                 export default ${path.basename(file, '.md')};
-                `;
+            `;
 
-           const outputFilePath = path.join(outputDir, path.basename(file, path.extname(file)) + '.tsx');
+            const outputFilePath = path.join(outputDir, path.basename(file, path.extname(file)) + '.tsx');
  
- const fs = require('fs');
-
-      }fs.writeFileSync(outputFilePath, jsxContent);
-
-    }
+            fs.writeFileSync(outputFilePath, jsxContent);
+      }
+    });
+});
