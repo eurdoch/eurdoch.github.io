@@ -581,6 +581,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
 }
 
+.list-disc {
+  list-style-type: disc;
+}
+
 .content-center {
   align-content: center;
 }
@@ -632,6 +636,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.625rem;
 }
 
+.indent-1 {
+  text-indent: 0.25rem;
+}
+
+.indent-2 {
+  text-indent: 0.5rem;
+}
+
+.indent-4 {
+  text-indent: 1rem;
+}
+
+.indent-8 {
+  text-indent: 2rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -650,4 +670,8 @@ h1, h2, h3, h4, h5, h6 {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }

@@ -1,16 +1,11 @@
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
   return (
     <div>
-      <ul>
-        <li>ML
-          <ul>
-            <li>New Entry</li>
-          </ul>
-        </li>
-        <li>Philosophy</li>
-        <li>Misc</li>
-      </ul>
+      <div className="text-xl">
+        <div className="font-bold">ML</div>
+      </div> 
     </div>
   )
 }
