@@ -16,7 +16,7 @@ function App() {
           <Link to="/blog">Blog</Link>
         </div>
       </div>
-      <div>
+      <div className="p-4">
         <Outlet />
       </div>
     </div>
