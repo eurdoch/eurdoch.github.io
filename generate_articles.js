@@ -28,4 +28,7 @@ fs.readdir(postsDir, (err, files) => {
                 export default ${path.basename(file, '.md')};
                 `;
 
-            const outputFilePath = path.join(outputDir,
+ javascript
+       }            const outputFilePath = path.join(outputDir, path.basename(file, path.extname(file)) + '.tsx');
+
+    }
