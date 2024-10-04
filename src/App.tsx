@@ -1,14 +1,13 @@
 import Markdown from 'markdown-to-jsx';
 import './App.css'
 
-const s = '# Foom prep\n\nprepare for the end!';
-
 function App() {
   return (
-    <div>
-      <Markdown>
-        {s}
-      </Markdown>
+    <div className="h-screen w-screen">
+      <div className="h-20 text-2xl w-screen bg-slate-100 p-4 flex gap-2 items-center">
+        <div>FoomPrep</div>
+        <div className="ml-auto">About</div>
+      </div>
     </div>
   )
 }
