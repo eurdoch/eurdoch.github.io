@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
+import About from './About.tsx';
+import Blog from './Blog.tsx';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,19 +12,23 @@ import './output.css'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/about",
-    element: <AboutPage />,
+    element: <App />,
+    children: [
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      }
+    ],
   },
 ]);
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider>
-      <App />
-    </RouterProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
 
