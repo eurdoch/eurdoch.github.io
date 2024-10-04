@@ -16,9 +16,8 @@ const router = createBrowserRouter([
     path: "/about",
     element: <AboutPage />,
   },
-];
-);
-javascript
+]);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider>
