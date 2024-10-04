@@ -21,12 +21,14 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+        children: [
+        ]
       }
     ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,

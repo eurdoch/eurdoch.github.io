@@ -1,10 +1,14 @@
 import fs from 'fs';
-import { fileURLToPath } from 'url';
 import path from 'path';
 
 const postsDir = path.join(import.meta.dirname, 'posts');
-const outputDir = path.join(import.meta.dirname, 'src');
+const outputDir = path.join(import.meta.dirname, 'src/posts');
 const blogFilePath = './src/Blog.tsx';
+const mainDir = path.join(import.meta.dirname, 'src/main.tsx');
+
+function camelToSnakeCase(str) {
+  return str.split(/(?=[A-Z])/).join('_').toLowerCase();
+}
 
 fs.readdir(postsDir, (err, files) => {
     if (err) throw err;
@@ -19,7 +23,7 @@ import Markdown from 'markdown-to-jsx';
 const ${path.basename(file, '.md')} = () => {
     <div>
         <Markdown>
-          {${JSON.stringify(fileContent)}}
+            {${JSON.stringify(fileContent)}}
         </Markdown>
     </div>             
 }
@@ -27,50 +31,102 @@ const ${path.basename(file, '.md')} = () => {
 export default ${path.basename(file, '.md')}`;
 
             const outputFilePath = path.join(outputDir, path.basename(file, path.extname(file)) + '.tsx');
- 
             fs.writeFileSync(outputFilePath, jsxContent);
-      }
+        }
     });
-});
 
-fs.readdir(postsDirectory, (err, files) => {
-  if (err) {
-    console.error('Error reading directory:', err);
-    return;
-  }
+    fs.readdir(outputDir, (err, files) => {
+        console.log(files);
+        if (err) {
+          console.error('Error reading directory:', err);
+          return;
+        }
 
-  // Filter for .jsx files
-  const jsxFiles = files.filter(file => path.extname(file) === '.jsx');
+        // Generate new link elements
+        const newLinks = files.map(file => {
+          const name = path.basename(file, '.jsx');
+          return `<div className="indent-8"><Link to="/posts/${name}">${name.replace(/-/g, ' ')}</Link></div>`;
+        });
 
-  // Generate new link elements
-  const newLinks = jsxFiles.map(file => {
-    const name = path.basename(file, '.jsx');
-    return `        <div className="indent-8"><Link to="/posts/${name}">${name.replace(/-/g, ' ')}</Link></div>`;
-  });
+        const blogReactComponent = `
+import { Link } from 'react-router-dom';
 
-  // Read the existing Blog.tsx file
-  fs.readFile(blogFilePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading file:', err);
-      return;
-    }
+const Blog = () => {
+  return (
+    <div>
+      <div className="text-xl">
+        <div className="font-bold">ML</div>
+        ${newLinks.join('\n')}
+      </div> 
+    </div>
+  )
+}
 
-    // Find the position to insert the new links
-    const insertPosition = data.indexOf('<div className="font-bold">ML</div>') + 
-                           '<div className="font-bold">ML</div>'.length;
+export default Blog
+`;
 
-    // Insert the new links
-    const updatedContent = data.slice(0, insertPosition) + '\n' + 
-                           newLinks.join('\n') + '\n' + 
-                           data.slice(insertPosition);
-
-    // Write the updated content back to Blog.tsx
-    fs.writeFile(blogFilePath, updatedContent, 'utf8', (err) => {
+    fs.writeFile(blogFilePath, blogReactComponent, 'utf8', (err) => {
       if (err) {
         console.error('Error writing file:', err);
         return;
       }
       console.log('Blog.tsx has been updated successfully.');
     });
+
+    const mainContent = `
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import About from './About.tsx';
+import Blog from './Blog.tsx';
+${files.map(file => {
+  const basename = path.basename(file, path.extname(file));
+  return `import ${basename} from './${basename}.tsx`
+}).join('\n')}
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
+import './output.css'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+        children: [
+          ${files.map(file => {
+            const basename = path.basename(file, path.extname(file));
+            const url_suffix = camelToSnakeCase(basename);
+            return `{ path: "${url_suffix}, element: <${basename} />}`
+          }).join('\n')}
+        ]
+      }
+    ],
+  },
+]);
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+)
+
+`;
+
+    fs.writeFile(mainDir, mainContent, 'utf8', (err) => {
+      if (err) {
+        console.error('Error writing file:', err);
+        return;
+      }
+      console.log('main.tsx built successfully.');
+    });
   });
-});
+})

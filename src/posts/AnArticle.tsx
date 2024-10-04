@@ -4,9 +4,9 @@ import Markdown from 'markdown-to-jsx';
 const AnArticle = () => {
     <div>
         <Markdown>
-          {"# An article\n\n## Subheader\nWhat a great article!\n"}
+            {"# An article\n\n## Subheader\nWhat a great article!\n"}
         </Markdown>
-  </div>             
+    </div>             
 }
 
 export default AnArticle

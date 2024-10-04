@@ -1,4 +1,3 @@
-import Markdown from 'markdown-to-jsx';
 import { Outlet, Link } from 'react-router-dom';
 import './App.css'
 
