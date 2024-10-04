@@ -1,1 +1,1 @@
-{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts"],"version":"5.6.2"}
+{"root":["./src/About.tsx","./src/App.tsx","./src/Blog.tsx","./src/Posts.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/posts/AnArticle.tsx","./src/posts/SomeNews.tsx"],"version":"5.6.2"}

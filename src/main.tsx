@@ -6,7 +6,7 @@ import About from './About.tsx';
 import Blog from './Blog.tsx';
 import Posts from './Posts.tsx';
 import AnArticle from './posts/AnArticle.tsx'
-import AnotherArticle from './posts/AnotherArticle.tsx'
+import SomeNews from './posts/SomeNews.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         element: <Posts />,
         children: [
           { path: "an_article", element: <AnArticle /> },
-{ path: "another_article", element: <AnotherArticle /> }
+{ path: "some_news", element: <SomeNews /> }
         ],
       },
     ],

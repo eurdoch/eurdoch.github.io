@@ -5,7 +5,7 @@ const AnArticle = () => {
     return (
         <div>
             <Markdown>
-                {"# An article\n\n## Subheader\nWhat a great article!\n"}
+                {"# An Article\n\n## So grand\n\n### Much sexiness\n\nThere are two blackfeet waiting at the meadow\n"}
             </Markdown>
         </div>             
     )

@@ -1,14 +1,14 @@
 
 import Markdown from 'markdown-to-jsx'; 
 
-const AnotherArticle = () => {
+const SomeNews = () => {
     return (
         <div>
             <Markdown>
-                {"# Another article\n\n## Wow you're really talented!\n\nThank you sir\n"}
+                {"# Some News\n\n## sOmething hapened\n\n## oh dear\n\nla la la la lala \n"}
             </Markdown>
         </div>             
     )
 }
 
-export default AnotherArticle
+export default SomeNews
