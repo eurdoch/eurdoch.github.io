@@ -1,17 +1,11 @@
-javascript
+
 const fs = require('fs');
 const path = require('path');
 const markdownToJsx = require('markdown-to-jsx');
 
 const postsDir = path.join(__dirname, 'posts');
-const outputDir = path.join(__dirname, 'output');
+const outputDir = path.join(__dirname, 'src');
 
-// Ensure the output directory exists
-if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-}
-
-// Read all markdown files in the posts directory
 fs.readdir(postsDir, (err, files) => {
     if (err) throw err;
 
@@ -21,18 +15,17 @@ fs.readdir(postsDir, (err, files) => {
             const fileContent = fs.readFileSync(filePath, 'utf8');
             const jsxContent = `
                 import React from 'react';
-                import Markdown from 'markdown-to-jsx                const MarkdownContent = () => (
-';                     <div>
-                                                   <Markdown>
-                                                                                        {${JSON.stringify(fileContent)}}
-                                 </Markdown>
-                                                       const jsxFilePath = path.join(outputDir MarkdownContent;
-                    </div>             `;
-                                          ,
-                                ```
+                import Markdown from 'markdown-to-jsx'; 
 
-                                                                                    );
-                                                                                                   
-                 export default
-                
+                const ${path.basename(file, '.md')} = () => {
+                     <div>
+                          <Markdown>
+                            {${JSON.stringify(fileContent)}}
+                          </Markdown>
+                    </div>             
+                }
 
+                export default ${path.basename(file, '.md')};
+                `;
+
+            const outputFilePath = path.join(outputDir,
