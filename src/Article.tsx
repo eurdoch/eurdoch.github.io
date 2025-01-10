@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 interface Article {
   _id: string;
   title: string;
+  subtitle: string;
   content: string;
   createdAt: string;
 }
@@ -27,6 +28,7 @@ const Article = () => {
       {article && (
         <>
           <h1>{article.title}</h1>
+          <h2>{article.subtitle}</h2>
           <ReactMarkdown>{article.content}</ReactMarkdown>
         </>
       )}
