@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -16,8 +15,8 @@ const Blog = () => {
       try {
         const res = await fetch('https://blog.directto.link/articles');
         const data = await res.json();
-        setArticles(data.sort((a, b) => {
-          return new Date(b.createdAt) - new Date(a.createdAt);
+        setArticles(data.sort((a: ArticleEntry, b: ArticleEntry) => {
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
         }));
       } catch (error) {
         console.error('Error fetching articles:', error);
