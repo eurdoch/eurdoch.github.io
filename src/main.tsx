@@ -3,14 +3,12 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import About from './About.tsx';
 import Blog from './Blog.tsx';
-import Posts from './Posts.tsx';
-import AnArticle from './posts/AnArticle.tsx'
-import SomeNews from './posts/SomeNews.tsx'
 import {
   createHashRouter,
   RouterProvider,
 } from 'react-router-dom';
 import './output.css'
+import Article from './Article.tsx';
 
 const router = createHashRouter([
   {
@@ -26,12 +24,8 @@ const router = createHashRouter([
         element: <Blog />,
       },
       {
-        path: "posts",
-        element: <Posts />,
-        children: [
-          { path: "an_article", element: <AnArticle /> },
-{ path: "some_news", element: <SomeNews /> }
-        ],
+        path: "blog/:id",
+        element: <Article />,
       },
     ],
   },

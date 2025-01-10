@@ -31,8 +31,8 @@ const Blog = () => {
     <div>
       <div className="text-xl">
         {articles.map(article => (
-          <div key={article._id} className="indent-8">
-            <Link to={`/posts/${article._id}`}>
+          <div key={article._id}>
+            <Link to={`/blog/${article._id}`}>
               {article.title}
             </Link>
           </div>
