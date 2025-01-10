@@ -1,4 +1,3 @@
-
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
@@ -8,12 +7,12 @@ import Posts from './Posts.tsx';
 import AnArticle from './posts/AnArticle.tsx'
 import SomeNews from './posts/SomeNews.tsx'
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from 'react-router-dom';
 import './output.css'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
