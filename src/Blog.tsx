@@ -1,16 +1,47 @@
 
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+interface ArticleEntry {
+  _id: string;
+  title: string;
+  createdAt: string;
+}
 
 const Blog = () => {
+  const [articles, setArticles] = useState<ArticleEntry[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://blog.directto.link/articles');
+        const data = await res.json();
+        setArticles(data.sort((a, b) => {
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        }));
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   return (
     <div>
       <div className="text-xl">
-        <div className="font-bold">ML</div>
-        <div className="indent-8"><Link to="/posts/an_article">An Article</Link></div>
-<div className="indent-8"><Link to="/posts/some_news">Some News</Link></div>
-      </div> 
+        {articles.map(article => (
+          <div key={article._id} className="indent-8">
+            <Link to={`/posts/${article._id}`}>
+              {article.title}
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
 
 export default Blog
+

@@ -9,10 +9,10 @@ function App() {
           <Link to="/">foomprep</Link>
         </div>
         <div className="ml-auto">
-          <Link to="/about">About</Link>
+          <Link to="/about">about</Link>
         </div>
         <div>
-          <Link to="/blog">Blog</Link>
+          <Link to="/blog">blog</Link>
         </div>
       </div>
       <div className="p-4">
