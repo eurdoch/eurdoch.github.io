@@ -25,13 +25,15 @@ const Article = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="mx-auto w-1/2">
       {article && (
-        <>
-          <h1>{article.title}</h1>
-          <h2>{article.subtitle}</h2>
+        <div>
+          <br />
+          <div className="text-3xl font-bold">{article.title}</div>
+          <div>{article.subtitle}</div>
+          <br />
           <ReactMarkdown>{article.content}</ReactMarkdown>
-        </>
+        </div>
       )}
     </div>
   );
