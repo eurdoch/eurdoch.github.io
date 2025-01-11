@@ -29,7 +29,7 @@ const Blog = () => {
 
 
   return (
-    <div>
+    <div className="p-4">
       <div className="text-xl">
         {articles.map(article => (
           <div key={article._id}>

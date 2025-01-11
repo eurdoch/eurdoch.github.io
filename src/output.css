@@ -586,12 +586,12 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
 }
 
-.w-screen {
-  width: 100vw;
-}
-
 .w-1\/2 {
   width: 50%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .cursor-pointer {
@@ -628,19 +628,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 2rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
