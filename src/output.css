@@ -569,6 +569,10 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
 }
 
+.inline-flex {
+  display: inline-flex;
+}
+
 .h-20 {
   height: 5rem;
 }
@@ -581,8 +585,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .gap-2 {
@@ -626,4 +638,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
 }
