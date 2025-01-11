@@ -16,8 +16,6 @@ interface SocialIconProps {
 const SocialIcon: React.FC<SocialIconProps> = ({
   icon,
   href,
-  color = "text-gray-600",
-  hoverColor = "text-blue-400",
   size = "lg",
   className = "",
   ariaLabel,
@@ -28,7 +26,8 @@ const SocialIcon: React.FC<SocialIconProps> = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center ${color} hover:${hoverColor} transition-colors duration-200 ${className}`}
+      className={`inline-flex items-center justify-center text-gray-600 hover:text-black transition-colors duration-200 cursor-pointer ${className}`}
+
       aria-label={ariaLabel || `Visit our ${icon.iconName} page`}
       onClick={onClick}
     >
@@ -38,3 +37,4 @@ const SocialIcon: React.FC<SocialIconProps> = ({
 };
 
 export default SocialIcon;
+
