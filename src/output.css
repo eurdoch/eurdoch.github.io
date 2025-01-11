@@ -569,54 +569,32 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-20 {
   height: 5rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-screen {
   width: 100vw;
 }
 
-.list-disc {
-  list-style-type: disc;
-}
-
-.content-center {
-  align-content: center;
-}
-
 .items-center {
   align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.gap-1 {
-  gap: 0.25rem;
 }
 
 .gap-2 {
   gap: 0.5rem;
 }
 
-.justify-self-center {
-  justify-self: center;
+.gap-3 {
+  gap: 0.75rem;
 }
 
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+.gap-4 {
+  gap: 1rem;
 }
 
 .bg-slate-100 {
@@ -628,48 +606,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
+.p-6 {
+  padding: 1.5rem;
 }
 
-.p-2\.5 {
-  padding: 0.625rem;
-}
-
-.indent-1 {
-  text-indent: 0.25rem;
-}
-
-.indent-2 {
-  text-indent: 0.5rem;
-}
-
-.indent-4 {
-  text-indent: 1rem;
-}
-
-.indent-8 {
-  text-indent: 2rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.p-8 {
+  padding: 2rem;
 }
 
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
