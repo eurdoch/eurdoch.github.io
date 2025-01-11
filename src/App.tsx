@@ -16,12 +16,8 @@ function App() {
         <div>
           <Link to="/blog">blog</Link>
         </div>
-        <div>
-          <SocialIcon icon={faXTwitter} href="https://x.com/foomprep" size='sm' hoverColor='black' />
-        </div>
-        <div>
-          <SocialIcon icon={faGithub} href="https://github.com/foomprep" size='sm' hoverColor='black' />
-        </div>
+        <SocialIcon icon={faXTwitter} href="https://x.com/foomprep" size='sm' hoverColor='black' />
+        <SocialIcon icon={faGithub} href="https://github.com/foomprep" size='sm' hoverColor='black' />
       </div>
       <div className="p-4">
         <Outlet />
