@@ -10,6 +10,8 @@ import {
 import './output.css'
 import Article from './Article.tsx';
 
+export const API_URL = 'https://blog.directto.link';
+
 const router = createHashRouter([
   {
     path: "/",

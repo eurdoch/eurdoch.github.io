@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { API_URL } from './main';
 
 interface ArticleEntry {
   _id: string;
@@ -13,7 +14,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://blog.directto.link/articles');
+        const res = await fetch(`${API_URL}/articles`);
         const data = await res.json();
         setArticles(data.sort((a: ArticleEntry, b: ArticleEntry) => {
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { API_URL } from "./main";
 
 interface Article {
   _id: string;
@@ -16,7 +17,7 @@ const Article = () => {
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch(`https://blog.directto.link/articles/${id}`);
+      const response = await fetch(`${API_URL}/articles/${id}`);
       const data = await response.json();
       setArticle(data);
     };
