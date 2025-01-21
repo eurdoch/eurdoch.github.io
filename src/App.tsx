@@ -13,9 +13,10 @@ function App() {
         {/*<div className="ml-auto">*/}
         {/*  <Link to="/about" className="hover:text-black">about</Link>*/}
         {/*</div>*/}
-        <div>
+        {/*<div>
           <Link to="/blog" className="hover:text-black">blog</Link>
-        </div>
+        </div>*/}
+
         <SocialIcon icon={faXTwitter} href="https://x.com/foomprep" size='sm' hoverColor='black' />
         <SocialIcon icon={faGithub} href="https://github.com/foomprep" size='sm' hoverColor='black' />
       </div>

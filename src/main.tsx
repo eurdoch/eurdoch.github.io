@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
-import About from './About.tsx';
 import Blog from './Blog.tsx';
 import {
   createHashRouter,
@@ -18,11 +17,7 @@ const router = createHashRouter([
     element: <App />,
     children: [
       {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "blog",
+        path: "/",
         element: <Blog />,
       },
       {
