@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="h-screen w-screen text-gray-600">
       <div className="h-20 text-2xl w-screen bg-slate-100 p-8 flex gap-4 items-center justify-center">
-        <div className="font-bold">
+        <div className="font-bold ml-auto">
           <Link to="/" className="hover:text-black">foomprep</Link>
         </div>
         {/*<div className="ml-auto">*/}
