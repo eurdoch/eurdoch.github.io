@@ -10,9 +10,9 @@ function App() {
         <div className="font-bold">
           <Link to="/" className="hover:text-black">foomprep</Link>
         </div>
-        <div className="ml-auto">
-          <Link to="/about" className="hover:text-black">about</Link>
-        </div>
+        {/*<div className="ml-auto">*/}
+        {/*  <Link to="/about" className="hover:text-black">about</Link>*/}
+        {/*</div>*/}
         <div>
           <Link to="/blog" className="hover:text-black">blog</Link>
         </div>
