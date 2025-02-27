@@ -31,6 +31,9 @@ const Blog = () => {
   return (
     <div className="p-4">
       <div className="text-xl">
+        I am a software engineer currently studying and doing independent research on machine intellignce.  :)
+      </div>
+      <div className="text-xl">
         {articles.map(article => (
           <div key={article._id}>
             <Link to={`/blog/${article._id}`}>
